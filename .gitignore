@@ -2,6 +2,7 @@
 venv/
 ENV/
 env/
+logs/
 
 # Кэш компиляции Python (создается при запусках unittest)
 **/__pycache__/

@@ -1,9 +1,10 @@
 import math
 import logging
 import sys
-
+import os
 # Шаблон строки лога (аналог template в Serilog)
 # Содержит: время, уровень (до 7 символов для выравнивания), имя логгера и сообщение
+os.makedirs("logs", exist_ok=True)
 log_format = "%(asctime)s | [%(levelname)-7s] | %(message)s"
 date_format = "%Y-%m-%d %H:%M:%S"
 
