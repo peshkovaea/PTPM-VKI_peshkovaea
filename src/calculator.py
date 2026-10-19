@@ -10,3 +10,4 @@ class TriangleCalculator:
         if a == b or b == c or a == c:
             return "равнобедренный", ""
         return "разносторонний", ""
+
