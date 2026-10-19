@@ -1,6 +1,6 @@
-from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod 
 
-class UserIO(ABC):
+class UserIO(ABC): #это интерфейс
     @abstractmethod
     def get_input(self, prompt: str) -> str:
         ...
