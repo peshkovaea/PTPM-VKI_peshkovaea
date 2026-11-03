@@ -1,5 +1,5 @@
 import unittest
-from converter import Converter
+from Converter import Converter
 
 
 class TestConverterBoundaries(unittest.TestCase):
