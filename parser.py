@@ -1,3 +1,4 @@
+"""
 import requests
 import bs4
 
@@ -12,3 +13,4 @@ for phone in phones:
     rating = phone.find('a', class_='rv-tile')
     rating = rating.find('b').text if rating else '—'
     print(f"{name} - {price} - {rating}")
+"""
