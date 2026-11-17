@@ -5,7 +5,7 @@ class TestDatabaseRepository(unittest.TestCase):
     def setUp(self):
         self.repo = DatabaseRepository(":memory:") # новая БД перед каждым тестом
 
-    def tearDown(self):
+    def tearDown(self): # после тестов 
         self.repo.close()
 
     # тесты для add (успех + дублирование ID)
