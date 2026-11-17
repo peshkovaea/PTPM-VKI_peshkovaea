@@ -6,17 +6,17 @@ class ForumParser:
     
     URL = 'https://sibdroid.ru/catalog/smartfony_samsung/'
     
-    # передаю User-Agent 
+    # передаю User-Agent с помощью этого заголовка до сайта доходит сообщение из какого браузера ОС мы заходим, чтобы сайт не заблокировал нас
     HEADERS = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
     }
 
-    def get_html(self, url=None):
+    def get_html(self, url=None):#передает заголовки и скачивает код страницы
         response = requests.get(url or self.URL, headers=self.HEADERS, timeout=10)
         response.raise_for_status()
         return response.text
 
-    # Этот метод для тестов (передаю ему HTML из файла)
+    # Этот метод для тестов (передаю ему HTML из файла, принимает уже готовый HTML-текст)
     def parse_html(self, html):
         bs = bs4.BeautifulSoup(html, 'lxml')
         cards = bs.find_all('div', class_='c20-body')

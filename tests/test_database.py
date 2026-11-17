@@ -3,7 +3,7 @@ from src.database import DatabaseRepository
 
 class TestDatabaseRepository(unittest.TestCase):
     def setUp(self):
-        self.repo = DatabaseRepository(":memory:") # Чистая БД перед каждым тестом
+        self.repo = DatabaseRepository(":memory:") # новая БД перед каждым тестом
 
     def tearDown(self):
         self.repo.close()

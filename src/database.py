@@ -4,7 +4,7 @@ class DatabaseRepository:
     MAX_NAME_LEN = 256
     MAX_MESSAGE_LEN = 8096
 
-    def __init__(self, db_path: str = ":memory:"):
+    def __init__(self, db_path: str = ":memory:"): # бд создается каждый раз заново
         self.conn = sqlite3.connect(db_path)
         self.conn.row_factory = sqlite3.Row  # позволяет получать данные как словари
         self._create_table()
@@ -32,7 +32,7 @@ class DatabaseRepository:
         if len(message) > self.MAX_MESSAGE_LEN:
             raise ValueError(f"Сообщение длиннее {self.MAX_MESSAGE_LEN} символов")
 
-    def add(self, comment_id: int, username: str, message: str) -> bool:
+    def add(self, comment_id: int, username: str, message: str) -> bool: #проверяет и валидирует
         self._validate(comment_id, username, message)
         try:
             self.conn.execute(
@@ -45,7 +45,7 @@ class DatabaseRepository:
             # Выбросит ошибку при дублировании ID 
             raise 
 
-    def get_by_id(self, comment_id: int):
+    def get_by_id(self, comment_id: int): #возвращает данные ввиде словаря
         cur = self.conn.execute("SELECT * FROM comments WHERE id = ?", (comment_id,))
         row = cur.fetchone()
         return dict(row) if row else None
